@@ -1,7 +1,7 @@
 import * as styles from '../styles/Home';
 import { Box } from '@mui/material';
 
-const Easel = ({displaySize}: {displaySize: string}) => {
+const Home = ({displaySize}: {displaySize: string}) => {
   return (
     <Box 
       sx={styles.container} 
@@ -12,4 +12,4 @@ const Easel = ({displaySize}: {displaySize: string}) => {
   )
 };
 
-export default Easel;
+export default Home;
