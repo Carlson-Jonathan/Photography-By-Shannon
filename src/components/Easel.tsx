@@ -1,13 +1,15 @@
 import * as styles from '../styles/Easel';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 
 const Easel = ({displaySize}: {displaySize: string}) => {
-  return <>
-      <Box sx={styles.container}>
-        <Typography className='fillerText'>Display Size:</Typography>
-        <Typography className='fillerText'>{displaySize}</Typography>
-      </Box>
-  </>
+  return (
+    <Box 
+      sx={styles.container} 
+      component="img"
+      src="../../public/Sample.jpg"
+      alt="Image not found">
+    </Box>
+  )
 };
 
 export default Easel;

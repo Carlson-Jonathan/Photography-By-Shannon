@@ -6,7 +6,6 @@ export const page = (theme: Theme) => ({
     padding: '3rem',
     display: 'flex',
     flexDirection: 'column',
-    gap: '2rem',
     alignItems: 'center',
     
     [theme.breakpoints.down('sm')]: {
@@ -20,15 +19,22 @@ export const page = (theme: Theme) => ({
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 export const siteName = (theme: Theme) => ({
-    color: '#222222',
+    color: '#999999',
     fontSize: '2.5rem',
     fontWeight: '900',
-    textAlign: 'center', 
+    textAlign: 'center',
+    marginBottom: '1.5rem',
+    
+    [theme.breakpoints.down('md')]: {
+        fontSize: '1.75rem',
+    },
 
     [theme.breakpoints.down('sm')]: {
         fontSize: '1.5rem',
         paddingTop: '2rem',
     },
+    
+    // border: 'solid 1px red',
 });
 
 

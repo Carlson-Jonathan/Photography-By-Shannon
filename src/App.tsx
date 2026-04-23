@@ -11,21 +11,14 @@ import NavigationBarHamburger from './components/NavigationBarHamburger';
 const App = () => {
   const displaySize: string = useScreenSize();
 
-  return <>
-
+  return (
     <Box sx={styles.page}>
-
       <Typography sx={styles.siteName}>PHOTOGRAPHY BY SHANNON</Typography>
-
       {displaySize === 'large' ? <NavigationBar />: <NavigationBarHamburger />}
-
       <Easel displaySize={displaySize} />
-
       <Footer />
-
     </Box>
-
-  </>;
+  );
 };
 
 export default App;
