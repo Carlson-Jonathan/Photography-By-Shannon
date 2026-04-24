@@ -1,18 +1,9 @@
+import { Home, Portfolio, Prices, Locations, Proofs, Contact, About, Cart } from '@pages';
+import { NavigationBar, NavigationBarHamburger, Footer } from '@components';
 import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Portfolio from './pages/Portfolio';
-import Prices from './pages/Prices';
-import Locations from './pages/Locations';
-import Proofs from './pages/Proofs';
-import Contact from './pages/Contact';
-import About from './pages/About';
-import Cart from './pages/Cart';
-import * as styles from './styles/App';
 import { Box, Typography } from '@mui/material'
-import NavigationBar from './components/NavigationBar';
-import Footer from './components/Footer';
-import { useScreenSize } from './Utilities';
-import NavigationBarHamburger from './components/NavigationBarHamburger';
+import { useScreenSize } from '@utils';
+import * as styles from '@styles/App';
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -28,7 +19,7 @@ const App = () => {
   {displaySize === 'large' ? <NavigationBar /> : <NavigationBarHamburger />}
 
   <Routes>
-    <Route path="/" element={<Home displaySize={displaySize} />} />
+    <Route path="/" element={<Home />} />
     <Route path="/portfolio" element={<Portfolio />} />
     <Route path="/prices" element={<Prices />} />
     <Route path="/locations" element={<Locations />} />

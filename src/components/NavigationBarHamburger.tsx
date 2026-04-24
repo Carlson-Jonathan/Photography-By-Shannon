@@ -12,7 +12,7 @@ const NavigationBarHamburger = () => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClick = (item: string) => {
+  const handleClick = () => {
     setAnchorEl(null);
   };
 

@@ -1,7 +1,7 @@
-import * as styles from '../styles/Home';
+import * as styles from '@styles/Home';
 import { Box } from '@mui/material';
 
-const Home = ({displaySize}: {displaySize: string}) => {
+const Home = () => {
   return (
     <Box 
       sx={styles.container} 

@@ -1,13 +1,9 @@
 import { AppBar, Button, Box } from '@mui/material';
-import * as styles from '../styles/NavigationBar';
+import * as styles from '@styles/NavigationBar';
 import { Link } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 const NavBar = () => {
-  const handleClick = (item: string) => {
-    console.log('\'' + item + '\'' + ' was clicked!');
-  };
-
   return (
     <AppBar position="static" sx={styles.navContainer}>
       <Box sx={styles.navItems}>

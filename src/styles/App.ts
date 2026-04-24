@@ -33,8 +33,6 @@ export const siteName = (theme: Theme) => ({
         fontSize: '1.5rem',
         paddingTop: '2rem',
     },
-    
-    // border: 'solid 1px red',
 });
 
 

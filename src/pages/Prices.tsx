@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import * as styles from '../styles/About';
+import * as styles from '@styles/About';
 
 const Prices = () => {
 

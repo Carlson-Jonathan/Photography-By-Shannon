@@ -1,7 +1,7 @@
 import type { Theme } from '@mui/material/styles';
 
 export const container = (theme: Theme) => ({
-    width: '95%',
+    width: '100%',
     maxWidth: '68rem',
     backgroundColor: 'blue',
     color: 'white',
@@ -13,7 +13,6 @@ export const container = (theme: Theme) => ({
     [theme.breakpoints.down('sm')]: {
         width: '100%',
     },
-
 
     '& .fillerText': {
         textAlign: 'center',
