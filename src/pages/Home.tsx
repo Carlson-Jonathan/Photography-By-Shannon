@@ -4,35 +4,92 @@ import * as styles from '@styles/Home';
 import { Box } from '@mui/material';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { getGallery } from '@/ApiUtilities';
+import { useEffect, useState } from 'react';
+import { GalleryError, GalleryLoading } from '@/components';
 
 const Home = () => {
 
-  const imageLocation = '/src/images/slideShow';
-  const images = import.meta.glob(`${imageLocation}/*.{jpg,png,jpeg}`, {
-    eager: true,
-    as: 'url',
-  });
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  // Hooks
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  const [slides, setSlides] = useState<string[]>([]);
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>('');
+  const [loading, setLoading] = useState(true);
 
-  const slides = Object.values(images);
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  // Logic
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  // Side Effects
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  useEffect(() => {
+    setLoading(true);
+    setErrorMessage(null);
+    
+    getGallery('homePage')
+    .then((res) => {
+      setSlides(res.images ?? []);
+    })
+    .catch((err) => {
+      console.error(err);
+      
+      setErrorMessage(
+        err?.message ||
+        err?.response?.data?.detail ||
+        "Unknown error occurred while loading gallery"
+      );
+    })
+    .finally(() => {
+      setLoading(false);
+    });
+  }, []);
 
+  if (loading) {
+    return (
+      <GalleryLoading />
+    );
+  }
+
+  if (errorMessage || slides.length === 0) {
+    return (
+      <GalleryError errorMessage={errorMessage ?? "No images returned"} />
+    );
+  }
+
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  // Component Return
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   return (
     <Box sx={styles.container}>
+
       <Swiper
-        modules={[ Autoplay, Pagination ]}
-        autoplay={{delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true}}
+        modules={[Autoplay, Pagination]}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true
+        }}
         speed={1200}
         grabCursor={true}
-        style={{zIndex: 0}}
+        style={{ zIndex: 0 }}
         pagination={{ clickable: true }}
-        loop>
-
+        loop
+      >
         {slides.map((src, index) => (
           <SwiperSlide key={index}>
-            <Box component="img" sx={styles.image} src={src} loading='lazy'/>
+            <Box
+              component="img"
+              sx={styles.image}
+              src={`http://127.0.0.1:8000${src}`}
+              loading="lazy"
+            />
           </SwiperSlide>
         ))}
-
       </Swiper>
+
     </Box>
   );
 };
