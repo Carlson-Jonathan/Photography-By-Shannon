@@ -1,3 +1,5 @@
+import type { Theme } from '@mui/material/styles';
+
 export const navContainer = {
     maxWidth: '68rem',
     backgroundColor: '#FFFFFF',
@@ -11,24 +13,35 @@ export const navContainer = {
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 export const menuButton = {
-    marginLeft: 'auto',
+    margin: 'auto',
     color: '#999999',
     height: '2rem',
+    width: '100%',
+    borderRadius: '0',
 };
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-export const menu = {
+export const menu = (theme: Theme) => ({
     '& .MuiPaper-root': {
         width: '100vw',
         maxWidth: '100vw',
-        marginLeft: '1rem',
+        
+        // For some reason the drawer anchors differently for small and medium views.
+        // This corrects that.
+        [theme.breakpoints.down('md')]: {
+            marginLeft: '1rem',
+        },
+        
+        [theme.breakpoints.down('sm')]: {
+            marginLeft: '-1rem',
+        },
     },
     
     '& .MuiMenu-list': {
         padding: 0,
     },
-};
+});
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

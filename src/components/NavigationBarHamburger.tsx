@@ -24,14 +24,14 @@ const NavigationBarHamburger = () => {
       </IconButton>
 
       <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClick} sx={styles.menu}>
-        <MenuItem component={Link} to={'/'} onClick={() => handleClick('home')} sx={styles.menuItem}>Home</MenuItem>
-        <MenuItem component={Link} to={'/portfolio'} onClick={() => handleClick('portfolio')} sx={styles.menuItem}>Portfolio</MenuItem>
-        <MenuItem component={Link} to={'/prices'} onClick={() => handleClick('prices')} sx={styles.menuItem}>Prices</MenuItem>
-        <MenuItem component={Link} to={'/locations'} onClick={() => handleClick('locations')} sx={styles.menuItem}>Locations</MenuItem>
-        <MenuItem component={Link} to={'/proofs'} onClick={() => handleClick('client proof')} sx={styles.menuItem}>Client Proof</MenuItem>
-        <MenuItem component={Link} to={'/contact'} onClick={() => handleClick('contact')} sx={styles.menuItem}>Contact</MenuItem>
-        <MenuItem component={Link} to={'/about'} onClick={() => handleClick('about')} sx={styles.menuItem}>About</MenuItem>
-        <MenuItem component={Link} to={'/cart'} onClick={() => handleClick('cart')} sx={styles.menuItem}><ShoppingCartIcon /></MenuItem>
+        <MenuItem component={Link} to={'/'} onClick={() => handleClick()} sx={styles.menuItem}>Home</MenuItem>
+        <MenuItem component={Link} to={'/portfolio'} onClick={() => handleClick()} sx={styles.menuItem}>Portfolio</MenuItem>
+        <MenuItem component={Link} to={'/prices'} onClick={() => handleClick()} sx={styles.menuItem}>Prices</MenuItem>
+        <MenuItem component={Link} to={'/locations'} onClick={() => handleClick()} sx={styles.menuItem}>Locations</MenuItem>
+        <MenuItem component={Link} to={'/proofs'} onClick={() => handleClick()} sx={styles.menuItem}>Client Proof</MenuItem>
+        <MenuItem component={Link} to={'/contact'} onClick={() => handleClick()} sx={styles.menuItem}>Contact</MenuItem>
+        <MenuItem component={Link} to={'/about'} onClick={() => handleClick()} sx={styles.menuItem}>About</MenuItem>
+        <MenuItem component={Link} to={'/cart'} onClick={() => handleClick()} sx={styles.menuItem}><ShoppingCartIcon /></MenuItem>
       </Menu>
         
     </AppBar>

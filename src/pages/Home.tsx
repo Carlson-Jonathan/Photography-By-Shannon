@@ -31,7 +31,6 @@ const Home = () => {
     
     getGallery('homePage')
     .then((res) => {
-      console.log("GALLERY RESPONSE:", res);
       setSlides(res.images ?? []);
     })
     .catch((err) => {
