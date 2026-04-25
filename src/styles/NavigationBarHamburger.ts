@@ -27,8 +27,8 @@ export const menu = (theme: Theme) => ({
         width: '100vw',
         maxWidth: '100vw',
         
-        // For some reason the drawer anchors differently for small and medium views.
-        // This corrects that.
+        // For some reason the drawer anchors differently
+        // for small and medium views. This corrects that.
         [theme.breakpoints.down('md')]: {
             marginLeft: '1rem',
         },

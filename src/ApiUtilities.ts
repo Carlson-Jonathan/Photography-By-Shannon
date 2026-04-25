@@ -5,6 +5,9 @@ export type GalleryResponse = {
   images: string[];
 };
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Returns all images stored in a gallery folder.
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 export const getGallery = async (galleryName: string): Promise<GalleryResponse> => {
   const res = await fetch(`${BASE_URL}/api/galleries/${galleryName}`);
 

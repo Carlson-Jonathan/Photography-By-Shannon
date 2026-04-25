@@ -10,4 +10,4 @@ export function useScreenSize() {
   if (isSmall) return 'small';
   if (isMedium) return 'medium';
   return 'large';
-}
+};

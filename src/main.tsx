@@ -6,7 +6,7 @@ import { StrictMode } from 'react';
 import { theme } from './Theme';
 import App from './App';
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <ThemeProvider theme={theme}>

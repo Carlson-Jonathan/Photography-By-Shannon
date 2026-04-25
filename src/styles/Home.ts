@@ -2,7 +2,6 @@ export const container = {
     width: '100%',
     maxWidth: '68rem',
     maxHeight: '80vh',
-    backgroundColor: '#E5E5E5',
 
     '& .swiper': {
         height: '100%',
@@ -11,7 +10,7 @@ export const container = {
     '& .swiper-slide': {
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center',
+        // alignItems: 'center', // Keeps images original size and centers them horizontally.
     },
 };
 
