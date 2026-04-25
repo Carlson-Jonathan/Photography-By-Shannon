@@ -14,7 +14,6 @@ const Home = () => {
   // Hooks
   // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   const [slides, setSlides] = useState<string[]>([]);
-  const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>('');
   const [loading, setLoading] = useState(true);
 
@@ -66,7 +65,7 @@ const Home = () => {
     <Box sx={styles.container}>
 
       <Swiper
-        modules={[Autoplay, Pagination]}
+        modules={[ Autoplay, Pagination]}
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,

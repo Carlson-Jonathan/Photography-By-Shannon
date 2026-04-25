@@ -1,26 +1,24 @@
-import type { Theme } from '@mui/material/styles';
-
-export const container = (theme: Theme) => ({
+export const container = {
     width: '100%',
     maxWidth: '68rem',
-    
-    [theme.breakpoints.down('md')]: {
-        width: '100%',
+    maxHeight: '80vh',
+    backgroundColor: '#E5E5E5',
+
+    '& .swiper': {
+        height: '100%',
     },
 
-    [theme.breakpoints.down('sm')]: {
-        width: '100%',
+    '& .swiper-slide': {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
-
-    '& .fillerText': {
-        textAlign: 'center',
-        fontSize: '3rem'
-    },
-});
+};
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 export const image = {
+    maxWidth: '100%',
+    maxHeight: '78vh',
     objectFit: 'cover',
-    width: '100%',
 };
