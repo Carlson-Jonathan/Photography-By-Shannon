@@ -13,7 +13,7 @@
       "@styles": ["src/styles/index"],
       "@styles/*": ["src/styles/*"],
 
-      "@utils": ["src/Utilities.tsx"]
+      "@utils": ["src/Utilities.tsx"],
     }
   },
   "files": [],

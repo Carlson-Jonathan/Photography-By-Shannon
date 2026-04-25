@@ -1,6 +1,6 @@
 export const generic = {
     border: 'solid green 1px',
-    width: '95%',
+    width: '100%',
     maxWidth: '68rem',
     height: '32rem',
     display: 'flex',

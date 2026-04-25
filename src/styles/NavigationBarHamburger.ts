@@ -1,7 +1,4 @@
-import type { Theme } from '@mui/material/styles';
-
-export const navContainer = (theme: Theme) => ({
-    width: '95%',
+export const navContainer = {
     maxWidth: '68rem',
     backgroundColor: '#FFFFFF',
     height: '2rem',
@@ -9,15 +6,7 @@ export const navContainer = (theme: Theme) => ({
     marginBottom: '1rem',
     display: 'flex',
     alignItems: 'center',
-
-    [theme.breakpoints.down('md')]: {
-        width: '95%'
-    },
-
-    [theme.breakpoints.down('sm')]: {
-        width: '100%',
-    },
-});
+};
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

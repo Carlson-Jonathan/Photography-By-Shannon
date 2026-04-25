@@ -6,7 +6,7 @@ const Home = () => {
     <Box 
       sx={styles.container} 
       component="img"
-      src="../../public/Sample.jpg"
+      src="/public/images/slideShow/Sample.jpg"
       alt="Image not found">
     </Box>
   )

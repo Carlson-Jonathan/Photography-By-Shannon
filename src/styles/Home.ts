@@ -7,7 +7,7 @@ export const container = (theme: Theme) => ({
     color: 'white',
     
     [theme.breakpoints.down('md')]: {
-        width: '95%',
+        width: '100%',
     },
 
     [theme.breakpoints.down('sm')]: {
