@@ -31,6 +31,7 @@ const Home = () => {
     
     getGallery('homePage')
     .then((res) => {
+      console.log("GALLERY RESPONSE:", res);
       setSlides(res.images ?? []);
     })
     .catch((err) => {
@@ -83,7 +84,7 @@ const Home = () => {
             <Box
               component="img"
               sx={styles.image}
-              src={`http://127.0.0.1:8000${src}`}
+              src={`${import.meta.env.VITE_API_URL}${src}`}
               loading="lazy"
             />
           </SwiperSlide>
