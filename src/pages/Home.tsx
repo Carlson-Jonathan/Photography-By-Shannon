@@ -1,12 +1,13 @@
-import { Autoplay, Pagination } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import * as styles from '@styles/Home';
 import { Box } from '@mui/material';
-import 'swiper/css';
-import 'swiper/css/pagination';
 import { getGallery } from '@/ApiUtilities';
 import { useEffect, useState } from 'react';
 import { GalleryError, GalleryLoading } from '@/components';
+
+import { Autoplay, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 const Home = () => {
 
