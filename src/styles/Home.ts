@@ -3,8 +3,6 @@ import type { Theme } from '@mui/material/styles';
 export const container = (theme: Theme) => ({
     width: '100%',
     maxWidth: '68rem',
-    backgroundColor: 'blue',
-    color: 'white',
     
     [theme.breakpoints.down('md')]: {
         width: '100%',
@@ -19,3 +17,8 @@ export const container = (theme: Theme) => ({
         fontSize: '3rem'
     },
 });
+
+export const image = {
+    objectFit: 'cover',
+    width: '100%',
+};

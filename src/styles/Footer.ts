@@ -3,7 +3,7 @@ export const container = {
     bottom: 0,
     left: 'auto',
     width: '100%',
-    height: '35px',
+    height: '25px',
     backgroundColor: '#FFFFFF',
     color: 'white',
     display: 'flex',
