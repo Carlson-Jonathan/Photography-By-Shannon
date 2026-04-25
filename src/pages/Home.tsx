@@ -28,7 +28,7 @@ const Home = () => {
 
         {slides.map((src, index) => (
           <SwiperSlide key={index}>
-            <Box component="img" sx={styles.image} src={src} />
+            <Box component="img" sx={styles.image} src={src} loading='lazy'/>
           </SwiperSlide>
         ))}
 
