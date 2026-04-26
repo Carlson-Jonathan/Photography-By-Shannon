@@ -2,7 +2,7 @@ import type { Theme } from '@mui/material/styles';
 
 export const page = (theme: Theme) => ({
     backgroundColor: '#EEEEEE',
-    height: '100vh',
+    // height: 'max(100%, 100vh)',
     padding: '3rem',
     display: 'flex',
     flexDirection: 'column',

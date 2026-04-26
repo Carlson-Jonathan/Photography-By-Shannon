@@ -10,7 +10,7 @@ export const container = {
     '& .swiper-slide': {
         display: 'flex',
         justifyContent: 'center',
-        // alignItems: 'center', // Keeps images original size and centers them horizontally.
+        alignItems: 'center', // Keeps images original size and centers them horizontally.
     },
 };
 
