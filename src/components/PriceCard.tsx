@@ -2,7 +2,6 @@ import { Box, Typography } from "@mui/material";
 import * as styles from '@styles/PriceCard';
 import type { SvgIconComponent } from '@mui/icons-material';
 
-
 type Props = {
   icon: SvgIconComponent;
   title: string;
