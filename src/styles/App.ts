@@ -2,7 +2,7 @@ import type { Theme } from '@mui/material/styles';
 
 export const page = (theme: Theme) => ({
     backgroundColor: '#EEEEEE',
-    // height: 'max(100%, 100vh)',
+    height: '100%',
     padding: '3rem',
     display: 'flex',
     flexDirection: 'column',
@@ -10,9 +10,6 @@ export const page = (theme: Theme) => ({
     
     [theme.breakpoints.down('sm')]: {
         padding: '0',
-    },
-
-    [theme.breakpoints.down('md')]: {
     },
 });
 

@@ -6,8 +6,10 @@ import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import PhotoLibraryIcon from '@mui/icons-material/PhotoLibrary';
 import PortraitIcon from '@mui/icons-material/Portrait';
 import PrintIcon from '@mui/icons-material/Print';
+import { useScreenSize } from "@/Utilities";
 
 const Prices = () => {
+  const screenSize = useScreenSize();
 
   const sessionStyle = {
     textAlign: 'center',
@@ -69,8 +71,8 @@ const Prices = () => {
   const digital = () => {
     return <>
       <Box sx={printsStyle}>
-      <Box className='lineItem'><Typography>20x30</Typography><Typography>$100</Typography></Box>
-      <Box className='lineItem'><Typography>20x30</Typography><Typography>$100</Typography></Box>
+      <Box className='lineItem'><Typography>Single Image</Typography><Typography>$40</Typography></Box>
+      <Box className='lineItem'><Typography>1 Hour Session</Typography><Typography>$300</Typography></Box>
       </Box>
       <Typography sx={{textAlign: 'center' }}>Includes copyright release. Delivered via CD or USB drive. Additional session time: $150/hour</Typography>
     </>
@@ -89,7 +91,7 @@ const Prices = () => {
         <PriceCard icon={PhotoLibraryIcon} title={'Digital Images'} content={digital()}/>
       </Box>
     </Box>
-    <Box></Box>
+    {screenSize == 'small' && (<Box sx={{ height: '3rem' }} />)}
   </>
   );
 };
