@@ -46,8 +46,8 @@ const Prices = () => {
       <Box className='lineItem'><Typography>Single Image</Typography><Typography>$40</Typography></Box>
       <Box className='lineItem'><Typography>1 Hour Session</Typography><Typography>$300</Typography></Box>
       </Box>
-      <Typography sx={{textAlign: 'center' }}>Includes copyright release. Delivered USB drive or email
-        (single images). Additional session time: $150/hour</Typography>
+      <Typography sx={{textAlign: 'center' }}>Includes copyright release. Session images are delivered on a USB drive.
+        Single image purchases are emailed. Additional session time: $150/hour</Typography>
     </>
   };
 

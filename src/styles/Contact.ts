@@ -1,3 +1,5 @@
+import type { Theme } from '@mui/material/styles';
+
 export const page = {
     width: '100%',
     minHeight: 'calc(100vh - 14.25rem)',
@@ -14,7 +16,7 @@ export const title = {
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-export const container = {
+export const container = (theme: Theme) => ({
     width: '100%',
     margin: '0 auto',
     maxWidth: '600px',
@@ -36,7 +38,11 @@ export const container = {
             borderColor: '#88DDDD',
         },
     },
-};
+
+    [theme.breakpoints.down('sm')]: {
+        borderRadius: '0',
+    },
+});
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
