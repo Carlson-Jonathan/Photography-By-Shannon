@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Box, TextField, Typography, Button } from '@mui/material';
+import { Box, TextField, Typography, Button, Alert } from '@mui/material';
 import { styles } from '@styles/Contact';
 
 export default function ContactSection() {
@@ -8,8 +8,10 @@ export default function ContactSection() {
     name: '',
     email: '',
     message: '',
-    website: '', // 🐝 honeypot ALWAYS defined
+    website: '',
   });
+
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   const handleChange = (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm((prev) => ({
@@ -21,18 +23,29 @@ export default function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    await fetch("http://192.168.1.249:8000/api/contact", {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form),
-    });
+    setStatus('loading');
 
-    setForm({
-      name: '',
-      email: '',
-      message: '',
-      website: '',
-    });
+    try {
+      const res = await fetch("http://192.168.1.249:8000/api/contact", {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) throw new Error('Request failed');
+
+      setStatus('success');
+
+      setForm({
+        name: '',
+        email: '',
+        message: '',
+        website: '',
+      });
+
+    } catch (err) {
+      setStatus('error');
+    }
   };
 
   return (
@@ -42,6 +55,18 @@ export default function ContactSection() {
         <Typography sx={styles.title}>
           Contact Us
         </Typography>
+
+        {status === 'success' && (
+          <Alert severity="success">
+            Message sent successfully.
+          </Alert>
+        )}
+
+        {status === 'error' && (
+          <Alert severity="error">
+            Something went wrong. Please try again.
+          </Alert>
+        )}
 
         <TextField
           label="Name"
@@ -66,7 +91,7 @@ export default function ContactSection() {
           fullWidth
         />
 
-        {/* 🐝 Honeypot (hidden field) */}
+        {/* 🐝 honeypot */}
         <TextField
           label="Website"
           value={form.website ?? ''}
@@ -78,9 +103,10 @@ export default function ContactSection() {
         <Button
           type="submit"
           variant="contained"
+          disabled={status === 'loading'}
           sx={styles.button}
         >
-          Send Message
+          {status === 'loading' ? 'Sending...' : 'Send Message'}
         </Button>
 
       </Box>
