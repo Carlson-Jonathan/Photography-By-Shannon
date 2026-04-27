@@ -4,6 +4,7 @@ export const page = {
     justifyContent: 'center',
     gap: '1rem',
     width: '100%',
+    minHeight: 'calc(100vh - 14.25rem)',
     maxWidth: '68rem',
 };
 

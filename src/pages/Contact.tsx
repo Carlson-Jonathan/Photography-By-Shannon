@@ -1,9 +1,10 @@
-import { useState } from 'react';
 import { Box, TextField, Typography, Button, Alert } from '@mui/material';
-import { styles } from '@styles/Contact';
+import * as styles from '@styles/Contact';
+import { useState } from 'react';
 
 export default function ContactSection() {
 
+  // Hooks
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -13,6 +14,8 @@ export default function ContactSection() {
 
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
   const handleChange = (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm((prev) => ({
       ...prev,
@@ -20,13 +23,15 @@ export default function ContactSection() {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const URL = 'http://192.168.1.249:8000/api/contact';
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setStatus('loading');
 
     try {
-      const res = await fetch("http://192.168.1.249:8000/api/contact", {
+      const res = await fetch(URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
@@ -44,9 +49,12 @@ export default function ContactSection() {
       });
 
     } catch (err) {
+      console.error(err);
       setStatus('error');
     }
   };
+
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
   return (
     <Box sx={styles.page}>
@@ -57,58 +65,25 @@ export default function ContactSection() {
         </Typography>
 
         {status === 'success' && (
-          <Alert severity="success">
-            Message sent successfully.
-          </Alert>
+          <Alert severity="success" sx={styles.successAlert}>Message sent successfully.</Alert>
         )}
 
         {status === 'error' && (
-          <Alert severity="error">
-            Something went wrong. Please try again.
-          </Alert>
+          <Alert severity="error">Something went wrong. Please try again.</Alert>
         )}
 
-        <TextField
-          label="Name"
-          value={form.name ?? ''}
-          onChange={handleChange('name')}
-          fullWidth
-          required
-          />
+        <TextField label="Name" sx={styles.labels} value={form.name ?? ''}
+          onChange={handleChange('name')} fullWidth required />
+        <TextField label="Email" sx={styles.labels} value={form.email ?? ''}
+          onChange={handleChange('email')} fullWidth required />
+        <TextField label="Message" sx={styles.labels} value={form.message ?? ''}
+          onChange={handleChange('message')} multiline rows={5} fullWidth required />
 
-        <TextField
-          label="Email"
-          value={form.email ?? ''}
-          onChange={handleChange('email')}
-          fullWidth
-          required
-          />
+        {/* 🐝 honeypot - spam bot decoy */}
+        <TextField label="Website" value={form.website ?? ''}
+          onChange={handleChange('website')} sx={{ display: 'none' }} autoComplete="off" />
 
-        <TextField
-          label="Message"
-          value={form.message ?? ''}
-          onChange={handleChange('message')}
-          multiline
-          rows={5}
-          fullWidth
-          required
-          />
-
-        {/* 🐝 honeypot */}
-        <TextField
-          label="Website"
-          value={form.website ?? ''}
-          onChange={handleChange('website')}
-          sx={{ display: 'none' }}
-          autoComplete="off"
-          />
-
-        <Button
-          type="submit"
-          variant="contained"
-          disabled={status === 'loading'}
-          sx={styles.button}
-          >
+        <Button type="submit" variant="contained" disabled={status === 'loading'}sx={styles.button}>
           {status === 'loading' ? 'Sending...' : 'Send Message'}
         </Button>
 

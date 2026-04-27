@@ -4,7 +4,7 @@ import * as styles from '@styles/NavigationBar';
 import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
-  const navItemStyle = ( isActive ) => {
+  const navItemStyle = ( isActive: boolean ) => {
     return isActive ? styles.navItem : styles.navItemActive;
   };
 

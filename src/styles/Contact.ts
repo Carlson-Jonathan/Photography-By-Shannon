@@ -1,12 +1,22 @@
-export const styles = {
-  page: {
+export const page = {
     width: '100%',
-    // height: '100vh',
-  },
+    minHeight: 'calc(100vh - 14.25rem)',
+};
 
-  container: {
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+export const title = {
+    color: '#999999',
+    fontSize: '2rem',
+    fontWeight: '600',
+    textAlign: 'center',
+};
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+export const container = {
     width: '100%',
-    margin: 'auto',
+    margin: '0 auto',
     maxWidth: '600px',
     display: 'flex',
     flexDirection: 'column',
@@ -14,23 +24,45 @@ export const styles = {
     padding: '2rem',
     borderRadius: '12px',
     boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
-    backgroundColor: 'white',
-  },
+    backgroundColor: '#FFFFFF',
 
-  title: {
-    color: '#999999',
-    fontSize: '2rem',
-    fontWeight: '600',
-    textAlign: 'center',
-  },
+    '& .MuiOutlinedInput-root': {
+        '&:hover .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#AAFFFF',
+            borderWidth: '2px',
+        },
+        
+        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#88DDDD',
+        },
+    },
+};
 
-  button: {
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+export const labels = {
+    '& .MuiInputLabel-root': {
+        color: '#999999',
+    },
+    '& .MuiInputLabel-root.Mui-focused': {
+        color: '#AADDDD',
+        fontWeight: '900',
+    },
+};
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+export const button = {
     backgroundColor: '#999999',
     alignSelf: 'center',
     width: '200px',
     fontSize: '1rem',
     paddingTop: '0.75rem',
     paddingBottom: '0.75rem',
-  }
+};
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+export const successAlert = {
+    color: '#559955',
 };
