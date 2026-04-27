@@ -49,7 +49,7 @@ export default function ContactSection() {
   };
 
   return (
-    <Box sx={styles.section}>
+    <Box sx={styles.page}>
       <Box component="form" sx={styles.container} onSubmit={handleSubmit}>
 
         <Typography sx={styles.title}>
@@ -73,14 +73,16 @@ export default function ContactSection() {
           value={form.name ?? ''}
           onChange={handleChange('name')}
           fullWidth
-        />
+          required
+          />
 
         <TextField
           label="Email"
           value={form.email ?? ''}
           onChange={handleChange('email')}
           fullWidth
-        />
+          required
+          />
 
         <TextField
           label="Message"
@@ -89,7 +91,8 @@ export default function ContactSection() {
           multiline
           rows={5}
           fullWidth
-        />
+          required
+          />
 
         {/* 🐝 honeypot */}
         <TextField
@@ -98,14 +101,14 @@ export default function ContactSection() {
           onChange={handleChange('website')}
           sx={{ display: 'none' }}
           autoComplete="off"
-        />
+          />
 
         <Button
           type="submit"
           variant="contained"
           disabled={status === 'loading'}
           sx={styles.button}
-        >
+          >
           {status === 'loading' ? 'Sending...' : 'Send Message'}
         </Button>
 

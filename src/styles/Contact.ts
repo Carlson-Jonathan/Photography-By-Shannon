@@ -1,15 +1,12 @@
 export const styles = {
-
-  section: {
+  page: {
     width: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    paddingTop: '4rem',
-    paddingBottom: '4rem',
+    // height: '100vh',
   },
 
   container: {
     width: '100%',
+    margin: 'auto',
     maxWidth: '600px',
     display: 'flex',
     flexDirection: 'column',
@@ -21,12 +18,14 @@ export const styles = {
   },
 
   title: {
+    color: '#999999',
     fontSize: '2rem',
-    fontWeight: 300,
+    fontWeight: '600',
     textAlign: 'center',
   },
 
   button: {
+    backgroundColor: '#999999',
     alignSelf: 'center',
     width: '200px',
     fontSize: '1rem',
