@@ -3,14 +3,19 @@ import { Box, TextField, Typography, Button } from '@mui/material';
 import { styles } from '@styles/Contact';
 
 export default function ContactSection() {
+
   const [form, setForm] = useState({
     name: '',
     email: '',
     message: '',
+    website: '', // 🐝 honeypot ALWAYS defined
   });
 
   const handleChange = (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, [field]: e.target.value });
+    setForm((prev) => ({
+      ...prev,
+      [field]: e.target.value ?? '',
+    }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -22,37 +27,52 @@ export default function ContactSection() {
       body: JSON.stringify(form),
     });
 
-    setForm({ name: '', email: '', message: '' });
+    setForm({
+      name: '',
+      email: '',
+      message: '',
+      website: '',
+    });
   };
 
   return (
     <Box sx={styles.section}>
-      <Box sx={styles.container} component="form" onSubmit={handleSubmit}>
+      <Box component="form" sx={styles.container} onSubmit={handleSubmit}>
+
         <Typography sx={styles.title}>
           Contact Us
         </Typography>
 
         <TextField
           label="Name"
-          value={form.name}
+          value={form.name ?? ''}
           onChange={handleChange('name')}
           fullWidth
         />
 
         <TextField
           label="Email"
-          value={form.email}
+          value={form.email ?? ''}
           onChange={handleChange('email')}
           fullWidth
         />
 
         <TextField
           label="Message"
-          value={form.message}
+          value={form.message ?? ''}
           onChange={handleChange('message')}
           multiline
           rows={5}
           fullWidth
+        />
+
+        {/* 🐝 Honeypot (hidden field) */}
+        <TextField
+          label="Website"
+          value={form.website ?? ''}
+          onChange={handleChange('website')}
+          sx={{ display: 'none' }}
+          autoComplete="off"
         />
 
         <Button
@@ -62,6 +82,7 @@ export default function ContactSection() {
         >
           Send Message
         </Button>
+
       </Box>
     </Box>
   );
